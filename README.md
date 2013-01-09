@@ -8,6 +8,32 @@ This is very very early stages. I would not suggest using this yet. It's being
 put on github now for anyone in the Sensu community that may be interested in
 hacking on it.
 
+Config
+------
+
+- Set SENSU_API_URL environment variable or specify with --sensu-api-url=
+
+Examples
+--------
+
+### Get Help
+
+    ./sensu-cli.rb
+
+
+### List active events
+
+    ./sensu-cli.rb events  --sensu-api-url='http://sensu.dom.tld:4567'
+    WARNING host1 http_check
+    Output: HttpCheck WARNING: http://127.0.0.1/ did not return quickly enough.
+
+    CRITICAL host2 https_check
+    Output:  HttpsCheck CRITICAL: https://google.com timed out.
+
+### Trigger a check execution
+
+    ./sensu-cli.rb checks request check_name subscribers1,sub2
+
 Author
 ------
 
