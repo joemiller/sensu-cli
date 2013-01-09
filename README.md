@@ -1,7 +1,8 @@
 sensu-cli
 =========
 
-Command-line interface to the Sensu monitoring framework's REST [API](https://github.com/sensu/sensu/wiki/Sensu%20API).
+Command-line interface to the [Sensu](https://github.com/sensu/sensu) monitoring
+framework's REST [API](https://github.com/sensu/sensu/wiki/Sensu%20API).
 
 
 This is very very early stages. I would not suggest using this yet. It's being
@@ -11,7 +12,8 @@ hacking on it.
 Config
 ------
 
-- Set `SENSU_API_URL` environment variable or specify on command-line with `--sensu-api-url=`
+- Set `SENSU_API_URL` environment variable or specify on command-line with
+  `--sensu-api-url=`.
 
 Examples
 --------
