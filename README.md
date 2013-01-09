@@ -1,7 +1,8 @@
 sensu-cli
 =========
 
-Command-line interface to the Sensu monitoring framework's REST API.
+Command-line interface to the Sensu monitoring framework's REST [API](https://github.com/sensu/sensu/wiki/Sensu%20API).
+
 
 This is very very early stages. I would not suggest using this yet. It's being
 put on github now for anyone in the Sensu community that may be interested in
