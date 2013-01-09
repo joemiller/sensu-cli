@@ -45,12 +45,18 @@ module SensuCli
     namespace :events
     default_task :list
 
-    desc "list", "list active events (alerts)"
+    option :all,
+      :desc => 'display all events, including UNKNOWN',
+      :aliases => '-a',
+      :type => :boolean
+    desc "list", "list active WARNING or CRITICAL events"
     def list
       api = SensuApi.new(parent_options.sensu_api_url)
       events = JSON.parse(api.request('/events'))
        events.each do |event|
-        next unless event['status'] == 1 or event['status'] == 2
+        unless options.all
+          next unless event['status'] == 1 or event['status'] == 2
+        end
         severity = api.status_to_string(event['status'])
 
         severity_color = case severity
@@ -98,7 +104,7 @@ module SensuCli
     class_option :sensu_api_url,
       :desc => "URL of Sensu API (or set environment var SENSU_API_SERVER)",
       :type => :string,
-      :default => ENV['SENSU_API_SERVER'] || 'http://localhost:4567',
+      :default => ENV['SENSU_API_URL'] || 'http://localhost:4567',
       :required => true
 
     # @TODO(joe): global class_option for '--output=format'. text, json, etc

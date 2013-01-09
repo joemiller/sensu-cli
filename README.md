@@ -11,7 +11,7 @@ hacking on it.
 Config
 ------
 
-- Set SENSU_API_URL environment variable or specify with --sensu-api-url=
+- Set `SENSU_API_URL` environment variable or specify with --sensu-api-url=
 
 Examples
 --------
