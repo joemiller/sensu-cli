@@ -9,6 +9,7 @@ require 'thor/group'
 require 'highline'
 require 'rest-client'
 
+# @TODO(joe): move sensuApi class into SensuCli module
 # helpers for accessing the REST interface of the sensu api
 class SensuApi
 
@@ -39,6 +40,31 @@ class SensuApi
 end
 
 module SensuCli
+
+  class NotYetImplementedException < Exception; end
+
+  # https://github.com/sensu/sensu/wiki/Sensu%20API
+
+  # /info
+  class Info < Thor
+    namespace :info
+    default_task :info
+
+    desc "info", "returns the API info"
+    def info
+      raise NotYetImplementedException
+    end
+  end
+
+  # /clients
+  class Clients < Thor
+    namespace :clients
+  end
+
+  # /stashes
+  class Stashes < Thor
+    namespace :stashes
+  end
 
   # /events
   class Events < Thor
@@ -101,6 +127,16 @@ module SensuCli
     desc "checks <command>", '/checks API access'
     subcommand 'checks', Checks
 
+    desc 'info', '/info API access'
+    subcommand 'info', Info
+
+    desc 'clients <command>', '/clients and /client API access'
+    subcommand 'clients', Clients
+
+    desc 'stashes <command>', '/stashes API access'
+    subcommand 'stashes', Stashes
+
+    # global options, availabe via `parent_option.option_name` in Task classes
     class_option :sensu_api_url,
       :desc => "URL of Sensu API (or set environment var SENSU_API_SERVER)",
       :type => :string,
