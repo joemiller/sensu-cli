@@ -11,7 +11,7 @@ hacking on it.
 Config
 ------
 
-- Set `SENSU_API_URL` environment variable or specify with --sensu-api-url=
+- Set `SENSU_API_URL` environment variable or specify on command-line with `--sensu-api-url=`
 
 Examples
 --------
@@ -32,7 +32,7 @@ Examples
 
 ### Trigger a check execution
 
-    ./sensu-cli.rb checks request check_name subscribers1,sub2
+    ./sensu-cli.rb checks request check_name subscribers1,subscribers2
 
 Author
 ------
@@ -43,7 +43,7 @@ License
 -------
 
     Author:: Joe Miller (<joeym@joeym.net>)
-    Copyright:: Copyright (c) 2012 Joe Miller
+    Copyright:: Copyright (c) 2013 Joe Miller
     License:: Apache License, Version 2.0
 
     Licensed under the Apache License, Version 2.0 (the "License");
