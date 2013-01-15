@@ -39,11 +39,11 @@ class SensuApi
 
 end
 
+  # https://github.com/sensu/sensu/wiki/Sensu%20API
 module SensuCli
 
+  # Exceptions
   class NotYetImplementedException < Exception; end
-
-  # https://github.com/sensu/sensu/wiki/Sensu%20API
 
   # /info
   class Info < Thor
@@ -138,7 +138,7 @@ module SensuCli
 
     # global options, availabe via `parent_option.option_name` in Task classes
     class_option :sensu_api_url,
-      :desc => "URL of Sensu API (or set environment var SENSU_API_SERVER)",
+      :desc => "URL of Sensu API (or set environment var SENSU_API_URL)",
       :type => :string,
       :default => ENV['SENSU_API_URL'] || 'http://localhost:4567',
       :required => true
